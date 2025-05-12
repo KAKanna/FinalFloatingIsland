@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(Destroying());
     }
     IEnumerator Destroying()
