@@ -19,11 +19,9 @@ public class Enemy3 : MonoBehaviour
         Deleteing();
     }
 
-    // Update is called once per frame
     void Update()
     {
         Vector3 dir = player.transform.position - transform.position;
-        //dir.Normalize();
         dir = dir.normalized;
         rb.AddForce(dir*speed);
     }

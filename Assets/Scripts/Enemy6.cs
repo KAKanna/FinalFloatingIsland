@@ -1,9 +1,9 @@
 using System.Collections;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy6 : MonoBehaviour
 {
-    public float speed = 3f;
+    public float speed = 5f;
     private Rigidbody rb;
     private GameObject player;
 
