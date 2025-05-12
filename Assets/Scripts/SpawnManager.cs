@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,9 +7,8 @@ public class SpawnManager : MonoBehaviour
     //List
     public Transform[] spawnPoints;
     public List<Transform> currentWaveSpawnPoint;
-    public GameObject enemyPrefab;
-
-    public int totalSpawnEnemies, numberOfRandomSpawnPoint, delayStart, spawnInterval, numberOfPowerUp;
+    public GameObject[] enemyPrefab;
+    private int ballIndex;
 
     void Start()
     {
@@ -18,7 +16,7 @@ public class SpawnManager : MonoBehaviour
     }
 
     IEnumerator SpawnEnemyRoutine()
-    { 
+    {
         yield return new WaitForSeconds(1f);
         while (true)
         {
@@ -29,9 +27,13 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnEnemy()
     {
-        int randomIndex =  Random.Range(0, spawnPoints.Length);
-        
-        
-        //Instantiate(enemyPrefab, spawnPoints[randomIndex].position, Quaternion.identity);
+        int randomIndex = Random.Range(0, spawnPoints.Length);
+        int ballRandom = Random.Range(0, enemyPrefab.Length);
+        Instantiate(
+            enemyPrefab[ballRandom],
+            spawnPoints[randomIndex].position,
+            Quaternion.identity
+        );
+
     }
 }

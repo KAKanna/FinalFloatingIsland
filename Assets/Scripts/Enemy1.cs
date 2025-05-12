@@ -1,9 +1,9 @@
 using System.Collections;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy1 : MonoBehaviour
 {
-    public float speed = 3f;
+    public float speed = 7f;
     private Rigidbody rb;
     private GameObject player;
 
@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
     }
     IEnumerator Destroying()
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(3f);
         Deleteing();
     }
 
