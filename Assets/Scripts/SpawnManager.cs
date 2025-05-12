@@ -11,7 +11,6 @@ public class SpawnManager : MonoBehaviour
     private int ballIndex;
 
 
-    public gameManager gm;
     public GameObject Player;
     private GameObject currentPlayer;
     public Transform spawnPointsPlayer;
@@ -53,7 +52,6 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnPlayer()
     {
-            gm.currentLives--;
         currentPlayer = Instantiate(Player, spawnPointsPlayer.position, Quaternion.identity);
     }
 }

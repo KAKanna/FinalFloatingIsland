@@ -20,7 +20,8 @@ public class gameManager : MonoBehaviour
         Text.gameObject.SetActive(false);
         EndScreen.SetActive(false);
         resetButton.gameObject.SetActive(false);
-        UpdateLivesUI();
+
+       
     }
 
     private void Update()
@@ -33,9 +34,11 @@ public class gameManager : MonoBehaviour
 
             if (pos.y < -5)
             {
+                currentLives--;
                 Destroy(player);
             }
         }
+        UpdateLivesUI();
     }
     private void UpdateLivesUI()
     {

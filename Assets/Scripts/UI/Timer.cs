@@ -22,7 +22,7 @@ public class Timer : MonoBehaviour
             timeElapsed += UnityEngine.Time.deltaTime;
             UpdateTimerUI();
 
-            if (gm.currentLives >= 0)
+            if (gm.currentLives <= 0)
             {
                 timeElapsed = 0;
                 isTimerRunning = false;
