@@ -8,6 +8,7 @@ public class Timer : MonoBehaviour
     public TMP_Text timerText;   
     public float timeElapsed; 
     private bool isTimerRunning = true;
+    public gameManager gm;
 
     void Start()
     {
@@ -18,8 +19,14 @@ public class Timer : MonoBehaviour
     {
         if (isTimerRunning)
         {
-            timeElapsed += UnityEngine.Time.deltaTime; 
-            UpdateTimerUI();  
+            timeElapsed += UnityEngine.Time.deltaTime;
+            UpdateTimerUI();
+
+            if (gm.currentLives >= 0)
+            {
+                timeElapsed = 0;
+                isTimerRunning = false;
+            }
         }
     }
 

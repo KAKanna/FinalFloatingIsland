@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -17,6 +18,7 @@ public class PlayerController : MonoBehaviour
     private bool hasPowerUp;
     private Coroutine runningSmashRoutine = null;
 
+    public gameManager gm;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -25,11 +27,13 @@ public class PlayerController : MonoBehaviour
         moveAction = InputSystem.actions.FindAction("Move");
         smashAction = InputSystem.actions.FindAction("Smash");
         breakAction = InputSystem.actions.FindAction("Break");
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        focalPoint = GameObject.Find("FocalPoint");
         float verticalInput = moveAction.ReadValue<Vector2>().y;
         rb.AddForce(verticalInput * speed * focalPoint.transform.forward);
 
@@ -45,6 +49,7 @@ public class PlayerController : MonoBehaviour
                 runningSmashRoutine =  StartCoroutine(SmashRoutine());
             }
         }
+       
     }
 
     private void OnTriggerEnter(Collider other)

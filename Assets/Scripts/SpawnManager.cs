@@ -10,9 +10,23 @@ public class SpawnManager : MonoBehaviour
     public GameObject[] enemyPrefab;
     private int ballIndex;
 
+
+    public gameManager gm;
+    public GameObject Player;
+    private GameObject currentPlayer;
+    public Transform spawnPointsPlayer;
+
     void Start()
     {
         StartCoroutine(SpawnEnemyRoutine());
+    }
+    private void Update()
+    {
+        if (currentPlayer == null)
+        {
+            Player.transform.position = spawnPointsPlayer.position;
+            SpawnPlayer();
+        }
     }
 
     IEnumerator SpawnEnemyRoutine()
@@ -35,5 +49,11 @@ public class SpawnManager : MonoBehaviour
             Quaternion.identity
         );
 
+    }
+
+    void SpawnPlayer()
+    {
+            gm.currentLives--;
+        currentPlayer = Instantiate(Player, spawnPointsPlayer.position, Quaternion.identity);
     }
 }

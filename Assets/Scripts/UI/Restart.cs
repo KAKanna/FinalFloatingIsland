@@ -1,16 +1,26 @@
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Restart : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public string sceneName;
+    private Button button;   
+
     void Start()
     {
-        
+        button = GetComponent<Button>();
+
+        if (button != null)
+        {
+            button.onClick.AddListener(ChangeScene);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    void ChangeScene()
     {
-        
+        Time.timeScale = 1f; 
+        SceneManager.LoadScene(sceneName);
     }
 }
