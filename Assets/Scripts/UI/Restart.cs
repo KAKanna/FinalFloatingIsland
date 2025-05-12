@@ -6,15 +6,16 @@ using UnityEngine.SceneManagement;
 public class Restart : MonoBehaviour
 {
     public string sceneName;
-    private Button button;   
+    private Button resetButton; 
 
-    void Start()
+    void Update()
     {
-        button = GetComponent<Button>();
+        resetButton = GetComponent<Button>();
 
-        if (button != null)
+        
+        if (resetButton != null)
         {
-            button.onClick.AddListener(ChangeScene);
+            resetButton.onClick.AddListener(ChangeScene);
         }
     }
 

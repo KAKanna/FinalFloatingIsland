@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using Unity.VisualScripting;
+
 using UnityEngine.SceneManagement;
 
 public class gameManager : MonoBehaviour
@@ -50,8 +50,10 @@ public class gameManager : MonoBehaviour
             Text.gameObject.SetActive(true);
             EndScreen.SetActive(true);
             resetButton.gameObject.SetActive(true);
-            resetButton.onClick.RemoveAllListeners();
+            
         }
 
     }
+
+    
 }
