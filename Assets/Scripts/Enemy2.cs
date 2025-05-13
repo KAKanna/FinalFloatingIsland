@@ -11,7 +11,7 @@ public class Enemy2 : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        player = GameObject.Find("Player(Clone)");
+        player = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(Destroying());
     }
     IEnumerator Destroying()
