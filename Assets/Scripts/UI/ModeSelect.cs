@@ -18,6 +18,7 @@ public class ModeSelect : MonoBehaviour
     void SelectEasyMode()
     {
         PlayerPrefs.SetInt("SelectedLives", 5);
+        PlayerPrefs.SetFloat("ScoreTime", 1);
         SceneManager.LoadScene("FloatingIsland");
 
     }
@@ -25,6 +26,7 @@ public class ModeSelect : MonoBehaviour
     void SelectHardMode()
     {
         PlayerPrefs.SetInt("SelectedLives", 3);
+        PlayerPrefs.SetFloat("ScoreTime", 5);
         SceneManager.LoadScene("FloatingIsland");
 
     }

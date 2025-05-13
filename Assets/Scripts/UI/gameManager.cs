@@ -6,11 +6,12 @@ public class gameManager : MonoBehaviour
 {
     public static gameManager Instance;
 
-
-    public int totalLives = 0;
+    public int totalLives;
     public int currentLives;
     public TMP_Text livesText;
 
+    public TMP_Text ScoreText;
+    public float scoreFinal;
 
     public TMP_Text Text;
     public GameObject EndScreen;
@@ -56,6 +57,7 @@ public class gameManager : MonoBehaviour
     private void UpdateLivesUI()
     {
         livesText.text = "Lives: " + currentLives;
+        ScoreText.text = "Score:" + scoreFinal;
         if (currentLives <= 0)
         {
             GameOver();
@@ -78,8 +80,10 @@ public class gameManager : MonoBehaviour
         Button.gameObject.SetActive(true);
     }
 
+  
 
 
 
-    
+
+
 }
