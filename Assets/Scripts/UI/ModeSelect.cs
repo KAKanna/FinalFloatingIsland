@@ -19,10 +19,7 @@ public class ModeSelect : MonoBehaviour
     {
         PlayerPrefs.SetInt("SelectedLives", 5);
         PlayerPrefs.SetFloat("ScoreTime", 1f);
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
         SceneManager.LoadScene("FloatingIsland");
 
     }
@@ -31,10 +28,7 @@ public class ModeSelect : MonoBehaviour
     {
         PlayerPrefs.SetInt("SelectedLives", 3);
         PlayerPrefs.SetFloat("ScoreTime", 5f);
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
         SceneManager.LoadScene("FloatingIsland");
 
     }
