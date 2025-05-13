@@ -1,14 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.SceneManagement;
 
 public class gameManager : MonoBehaviour
 {
     public static gameManager Instance;
 
 
- 
     public int totalLives = 0;
     public int currentLives;
     public TMP_Text livesText;
@@ -32,17 +30,12 @@ public class gameManager : MonoBehaviour
 
     private void Start()
     {
-        Time.timeScale = 1f;
+        GameStart();
 
         totalLives = PlayerPrefs.GetInt("SelectedLives", 3);
         currentLives = totalLives;
-
-        Text.gameObject.SetActive(false);
-        EndScreen.SetActive(false);
-        Button.gameObject.SetActive(false);
     }
 
-    
     private void Update()
     {
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
@@ -62,15 +55,21 @@ public class gameManager : MonoBehaviour
 
     private void UpdateLivesUI()
     {
-        
         livesText.text = "Lives: " + currentLives;
         if (currentLives <= 0)
         {
             GameOver();
         }
-
     }
 
+    private void GameStart()
+    {
+        Time.timeScale = 1f;
+        Text.gameObject.SetActive(false);
+        EndScreen.SetActive(false);
+        Button.gameObject.SetActive(false);
+
+    }
     private void GameOver()
     {
         Time.timeScale = 0f;
@@ -78,6 +77,8 @@ public class gameManager : MonoBehaviour
         EndScreen.SetActive(true);
         Button.gameObject.SetActive(true);
     }
+
+
 
 
     

@@ -17,10 +17,6 @@ public class PlayerController : MonoBehaviour
 
     private bool hasPowerUp;
     private Coroutine runningSmashRoutine = null;
-
-    //public gameManager gm;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -29,8 +25,6 @@ public class PlayerController : MonoBehaviour
         breakAction = InputSystem.actions.FindAction("Break");
         
     }
-
-    // Update is called once per frame
     void Update()
     {
         focalPoint = GameObject.Find("FocalPoint");
@@ -97,14 +91,8 @@ public class PlayerController : MonoBehaviour
             yield return null;
             if(chargeTime >=2f)
             {
-                Debug.Log("Active");
                 break;
             }
-        }
-        if(chargeTime < 2f)
-        {
-            Debug.Log("cancel");
-            yield break;
         }
 
         Enemy[] enemies = FindObjectsByType<Enemy>(FindObjectsSortMode.None);
@@ -116,6 +104,4 @@ public class PlayerController : MonoBehaviour
 
         yield return null;
     }
-
-
 }

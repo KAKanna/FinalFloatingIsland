@@ -1,14 +1,14 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using Unity.VisualScripting;
 
 public class Timer : MonoBehaviour
 {
-    public TMP_Text timerText;   
-    public float timeElapsed; 
-    private bool isTimerRunning = true;
     public gameManager gm;
+    public TMP_Text timerText;
+
+    public float timeElapsed;
+    private bool isTimerRunning = true;
 
     void Start()
     {

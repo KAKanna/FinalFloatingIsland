@@ -12,7 +12,7 @@ public class Restart : MonoBehaviour
     {
         resetButton = GetComponent<Button>();
         resetButton.onClick.AddListener(ChangeScene);
-        
+
     }
 
     void ChangeScene()

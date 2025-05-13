@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    //List
     public Transform[] spawnPoints;
     public List<Transform> currentWaveSpawnPoint;
     public GameObject[] enemyPrefab;
-    private int ballIndex;
-
 
     public GameObject Player;
     private GameObject currentPlayer;
@@ -49,7 +46,6 @@ public class SpawnManager : MonoBehaviour
         );
 
     }
-
     void SpawnPlayer()
     {
         currentPlayer = Instantiate(Player, spawnPointsPlayer.position, Quaternion.identity);
