@@ -19,7 +19,7 @@ public class gameManager : MonoBehaviour
 
     private void Start()
     {
-
+        totalLives = PlayerPrefs.GetInt("SelectedLives", 3);
         currentLives = totalLives;
         Text.gameObject.SetActive(false);
         EndScreen.SetActive(false);

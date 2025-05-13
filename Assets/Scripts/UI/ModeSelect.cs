@@ -17,14 +17,14 @@ public class ModeSelect : MonoBehaviour
 
     void SelectEasyMode()
     {
-        gameManager.Instance.totalLives = 5;
+        PlayerPrefs.SetInt("SelectedLives", 5);
         SceneManager.LoadScene("FloatingIsland");
 
     }
 
     void SelectHardMode()
     {
-        gameManager.Instance.totalLives = 3;
+        PlayerPrefs.SetInt("SelectedLives", 3);
         SceneManager.LoadScene("FloatingIsland");
 
     }
