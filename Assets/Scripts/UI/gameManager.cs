@@ -5,7 +5,7 @@ using TMPro;
 public class gameManager : MonoBehaviour
 {
     public static gameManager Instance;
-
+    bool playerDestroyed = false;
 
     public int totalLives = 0;
     public int currentLives;
@@ -39,7 +39,6 @@ public class gameManager : MonoBehaviour
     private void Update()
     {
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-
         foreach (GameObject player in players)
         {
             Vector3 pos = player.transform.position;
@@ -48,19 +47,21 @@ public class gameManager : MonoBehaviour
             {
                 currentLives--;
                 Destroy(player);
+                playerDestroyed = true;
             }
+
         }
 
         GameObject[] enemys = GameObject.FindGameObjectsWithTag("Enemy");
-
         foreach (GameObject enemy in enemys)
-        { 
-            if (currentLives <= 0)
+        {
+            if (playerDestroyed)
             {
-                currentLives--;
                 Destroy(enemy);
+                playerDestroyed = false;
             }
         }
+
         UpdateLivesUI();
     }
 
