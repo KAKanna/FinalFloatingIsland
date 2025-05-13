@@ -8,9 +8,7 @@ public class Timer : MonoBehaviour
 
     public float timeElapsed;
     private bool isTimerRunning = true;
-
-    
-    
+ 
     void Start()
     {
         timeElapsed = 0f;
