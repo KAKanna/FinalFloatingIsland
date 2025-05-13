@@ -1,33 +1,33 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
 using UnityEngine.SceneManagement;
 
 public class gameManager : MonoBehaviour
 {
-    public int totalLives = 3;
+    public static gameManager Instance;
+
+
+    public int totalLives = 0;
     public int currentLives;
     public TMP_Text livesText;
+   
 
     public TMP_Text Text;
     public GameObject EndScreen;
-    public Button resetButton;
+    public Button Button;
 
     private void Start()
     {
         currentLives = totalLives;
         Text.gameObject.SetActive(false);
         EndScreen.SetActive(false);
-        resetButton.gameObject.SetActive(false);
-
-       
+        Button.gameObject.SetActive(false);
     }
 
     private void Update()
     {
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-        GameObject[] enemys = GameObject.FindGameObjectsWithTag("Enemy");
 
         foreach (GameObject player in players)
         {
@@ -39,28 +39,19 @@ public class gameManager : MonoBehaviour
                 Destroy(player);
             }
         }
-
-        foreach (GameObject enemy in enemys)
-        {
-            if (currentLives <= 0)
-            {
-                currentLives--;
-                Destroy(enemy);
-            }
-        }
-
         UpdateLivesUI();
     }
+
     private void UpdateLivesUI()
     {
-
+        
         livesText.text = "Lives: " + currentLives;
         if (currentLives <= 0)
         {
             Time.timeScale = 0f;
             Text.gameObject.SetActive(true);
             EndScreen.SetActive(true);
-            resetButton.gameObject.SetActive(true);
+            Button.gameObject.SetActive(true);
         }
 
     }

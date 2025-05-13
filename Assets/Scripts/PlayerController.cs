@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     private bool hasPowerUp;
     private Coroutine runningSmashRoutine = null;
 
-    public gameManager gm;
+    //public gameManager gm;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
