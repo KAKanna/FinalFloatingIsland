@@ -9,14 +9,12 @@ public class Timer : MonoBehaviour
     public float timeElapsed;
     private bool isTimerRunning = true;
 
-    public float scoreMap;
-    float scoreTime;
+    
     
     void Start()
     {
         timeElapsed = 0f;
-        scoreMap = 0f;
-        scoreTime = PlayerPrefs.GetFloat("ScoreTime", 1f);
+       
     }
 
     void Update()
@@ -24,7 +22,7 @@ public class Timer : MonoBehaviour
         if (isTimerRunning)
         {
             timeElapsed += UnityEngine.Time.deltaTime;
-            scoreMap ++;
+            
             UpdateTimerUI();
 
             if (gameManager.Instance.currentLives <= 0)
@@ -40,15 +38,5 @@ public class Timer : MonoBehaviour
         int seconds = Mathf.FloorToInt(timeElapsed % 60);
 
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-    }
-
-    public void CalculateScoreTime()
-    {
-      
-        if (timeElapsed != null)
-        {
-            gameManager.Instance.scoreFinal = scoreMap * scoreTime;
-            gameManager.Instance.UpdateScoreUI();
-        }
     }
 }

@@ -6,12 +6,11 @@ public class gameManager : MonoBehaviour
 {
     public static gameManager Instance;
 
-    public int totalLives;
+
+    public int totalLives = 0;
     public int currentLives;
     public TMP_Text livesText;
 
-    public TMP_Text ScoreText;
-    public float scoreFinal;
 
     public TMP_Text Text;
     public GameObject EndScreen;
@@ -53,10 +52,7 @@ public class gameManager : MonoBehaviour
         }
         UpdateLivesUI();
     }
-    public void UpdateScoreUI()
-    {
-        ScoreText.text = "Score: " + scoreFinal;
-    }
+
     private void UpdateLivesUI()
     {
         livesText.text = "Lives: " + currentLives;
@@ -81,8 +77,6 @@ public class gameManager : MonoBehaviour
         EndScreen.SetActive(true);
         Button.gameObject.SetActive(true);
     }
-
-  
 
 
 

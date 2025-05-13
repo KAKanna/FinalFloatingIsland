@@ -376,7 +376,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c875379e25bfcda429a129a2932428eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gm: {fileID: 1697986936}
   timerText: {fileID: 231544082}
   timeElapsed: 0
 --- !u!1001 &245963551
@@ -1655,8 +1654,6 @@ MonoBehaviour:
   totalLives: 0
   currentLives: 0
   livesText: {fileID: 1740531416}
-  ScoreText: {fileID: 1699177601}
-  scoreFinal: 0
   Text: {fileID: 1618042769}
   EndScreen: {fileID: 452719624}
   Button: {fileID: 962610708}
@@ -1671,6 +1668,7 @@ GameObject:
   - component: {fileID: 1699177600}
   - component: {fileID: 1699177602}
   - component: {fileID: 1699177601}
+  - component: {fileID: 1699177603}
   m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
@@ -1796,6 +1794,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1699177599}
   m_CullTransparentMesh: 1
+--- !u!114 &1699177603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699177599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 146f281a962d4634a89766c820fd2a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScoreText: {fileID: 1699177601}
+  scoreFinal: 0
+  scoreMap: 0
 --- !u!1 &1740426193
 GameObject:
   m_ObjectHideFlags: 0
