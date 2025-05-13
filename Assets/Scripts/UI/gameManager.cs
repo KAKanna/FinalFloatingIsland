@@ -53,11 +53,13 @@ public class gameManager : MonoBehaviour
         }
         UpdateLivesUI();
     }
-
+    public void UpdateScoreUI()
+    {
+        ScoreText.text = "Score: " + scoreFinal;
+    }
     private void UpdateLivesUI()
     {
         livesText.text = "Lives: " + currentLives;
-        ScoreText.text = "Score:" + scoreFinal;
         if (currentLives <= 0)
         {
             GameOver();

@@ -4,19 +4,19 @@ using TMPro;
 
 public class Timer : MonoBehaviour
 {
-    public gameManager gm;
     public TMP_Text timerText;
 
     public float timeElapsed;
     private bool isTimerRunning = true;
 
-    float scoreTime = PlayerPrefs.GetInt("ScoreTime", 1);
-    float scoreMap;
-
+    public float scoreMap;
+    float scoreTime;
+    
     void Start()
     {
         timeElapsed = 0f;
-        scoreMap = 0;
+        scoreMap = 0f;
+        scoreTime = PlayerPrefs.GetFloat("ScoreTime", 1f);
     }
 
     void Update()
@@ -24,13 +24,11 @@ public class Timer : MonoBehaviour
         if (isTimerRunning)
         {
             timeElapsed += UnityEngine.Time.deltaTime;
-            scoreMap += UnityEngine.Time.deltaTime;
-
+            scoreMap ++;
             UpdateTimerUI();
 
-            if (gm.currentLives <= 0)
+            if (gameManager.Instance.currentLives <= 0)
             {
-                timeElapsed = 0;
                 isTimerRunning = false;
             }
         }
@@ -50,6 +48,7 @@ public class Timer : MonoBehaviour
         if (timeElapsed != null)
         {
             gameManager.Instance.scoreFinal = scoreMap * scoreTime;
+            gameManager.Instance.UpdateScoreUI();
         }
     }
 }
