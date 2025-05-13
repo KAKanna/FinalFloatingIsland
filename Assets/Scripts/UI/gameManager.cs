@@ -50,6 +50,17 @@ public class gameManager : MonoBehaviour
                 Destroy(player);
             }
         }
+
+        GameObject[] enemys = GameObject.FindGameObjectsWithTag("Enemy");
+
+        foreach (GameObject enemy in enemys)
+        { 
+            if (currentLives <= 0)
+            {
+                currentLives--;
+                Destroy(enemy);
+            }
+        }
         UpdateLivesUI();
     }
 
