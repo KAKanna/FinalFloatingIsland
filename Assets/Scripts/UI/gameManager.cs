@@ -19,10 +19,23 @@ public class gameManager : MonoBehaviour
 
     private void Start()
     {
+
         currentLives = totalLives;
         Text.gameObject.SetActive(false);
         EndScreen.SetActive(false);
         Button.gameObject.SetActive(false);
+    }
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Update()

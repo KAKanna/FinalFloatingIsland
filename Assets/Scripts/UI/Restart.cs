@@ -11,12 +11,8 @@ public class Restart : MonoBehaviour
     void Update()
     {
         resetButton = GetComponent<Button>();
-
+        resetButton.onClick.AddListener(ChangeScene);
         
-        if (resetButton != null)
-        {
-            resetButton.onClick.AddListener(ChangeScene);
-        }
     }
 
     void ChangeScene()
