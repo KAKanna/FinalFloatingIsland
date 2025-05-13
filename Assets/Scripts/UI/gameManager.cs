@@ -27,6 +27,7 @@ public class gameManager : MonoBehaviour
     private void Update()
     {
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        GameObject[] enemys = GameObject.FindGameObjectsWithTag("Enemy");
 
         foreach (GameObject player in players)
         {
@@ -38,11 +39,21 @@ public class gameManager : MonoBehaviour
                 Destroy(player);
             }
         }
+
+        foreach (GameObject enemy in enemys)
+        {
+            if (currentLives <= 0)
+            {
+                currentLives--;
+                Destroy(enemy);
+            }
+        }
+
         UpdateLivesUI();
     }
     private void UpdateLivesUI()
     {
-        
+
         livesText.text = "Lives: " + currentLives;
         if (currentLives <= 0)
         {
@@ -50,7 +61,6 @@ public class gameManager : MonoBehaviour
             Text.gameObject.SetActive(true);
             EndScreen.SetActive(true);
             resetButton.gameObject.SetActive(true);
-            
         }
 
     }
